@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1.5
+  status_cd: MyString
+  charity_id: 1
+  card_id: 1
+
+two:
+  amount: 1.5
+  status_cd: MyString
+  charity_id: 1
+  card_id: 1
