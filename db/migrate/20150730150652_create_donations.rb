@@ -2,7 +2,7 @@ class CreateDonations < ActiveRecord::Migration
   def change
     create_table :donations do |t|
       t.float :amount
-      t.string :status_cd
+      t.string :status_cd, default: "new"
       t.integer :charity_id
       t.integer :card_id
 

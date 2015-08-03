@@ -1,0 +1,10 @@
+<p class="title-text">Your Donation Receipt</p>
+<p class="main-text">Thank you very much for your donation!<br>
+Details of your donation are listed below, for your records.</p>
+<div class="donation-details">
+  <p class="main-text">Donation Details</p>
+  <p class="donation-details-text">Amount: $<%= @donation.display_amount %></p>
+  <p class="donation-details-text">With card ending in <%= @donation.card.last_four_digits %></p>
+  <p class="donation-details-text">On <%= @donation.created_at.strftime("%A, %b %d %Y") %></p>
+  <p class="donation-details-text">Donated to <%= @donation.charity.name %></p>
+</div>

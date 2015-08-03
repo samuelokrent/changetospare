@@ -3,7 +3,7 @@ class CreateCards < ActiveRecord::Migration
     create_table :cards do |t|
       t.binary :number
       t.string :expiration_month
-      t.string :expiration_date
+      t.string :expiration_year
       t.binary :verification_code
       t.string :name
 

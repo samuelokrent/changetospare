@@ -1,0 +1,10 @@
+<p class="title-text">ChangeToSpare Sponsored Charities</p>
+<div class="charity-list-wrapper">
+  <% Charity.all.each do |c| %>
+    <div class="charity-wrapper">
+      <p class="main-text"><%= c.name %></p>
+      <p class="main-text">About<br><%= c.about %></p>
+      <p class="main-text">Total Donations: $<%= Donation.display_amount c.total_donations %></p>
+    </div>
+  <% end %>
+</div>

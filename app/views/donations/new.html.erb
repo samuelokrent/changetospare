@@ -1,0 +1,63 @@
+<div class="text-wrapper">
+  <p class="title-text">Donate</p>
+  <p class="main-text">Please fill out the following fields.</p>
+  <p class="main-text">
+    <span class="alert-text">Note:</span> donations must be at least 50 cents.
+    <span class="in-text-link" onclick="$('#explanation-div').show();">Why?</span>
+  </p>
+  <div id="explanation-div" style="display: none;">
+    <p class="main-text">Credit card companies charge a small fee for every transaction,<br>
+      so any amount less than 50 cents might go entirely to your credit card company.</p>
+  </div>
+</div>
+
+<div class="form-wrapper">
+    <div class="form-div">
+        <% if @donation.errors.any? %>
+            <div class="form-errors">
+              <ul class="error-list">
+                <% @donation.errors.full_messages.each do |e| %>
+                    <li class="error-text"><%=e%></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+      <%= form_for @donation, html: { id: "donation-form" } do |f| %>
+
+          <p class="donation-label">Amount (USD)</p>
+          <p class="dollar-sign-label" style="display: inline-block;">$</p><%= f.text_field :amount, class: "donation-input" %>
+
+          <p class="donation-label">Choose a charity!</p>
+          <%= f.collection_select :charity_id, Charity.all, :id, :name %>
+
+          <p class="donation-form-text">Please enter your card's information below</p>
+
+          <% @card = Card.new if @card.nil? %>
+          <% if @card.errors.any? %>
+              <div class="form-errors">
+                <ul class="error-list">
+                  <% @card.errors.full_messages.each do |e| %>
+                      <li class="error-text"><%=e%></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <%= fields_for :card do |c| %>
+              <p class="donation-label">Card Number</p>
+              <%= c.text_field :number, class: "donation-input" %>
+
+              <p class="donation-label">Expiration Date</p>
+              <%= c.text_field :expiration_month, class: "donation-input card-date", size: 2,  placeholder: "MM" %>/<%= c.text_field :expiration_year, class: "donation-input card-date", size: 2,  placeholder: "YY" %>
+
+              <p class="donation-label">Cardholder's Name</p>
+              <%= c.text_field :name, class: "donation-input" %>
+
+              <p class="donation-label">Verification Code</p>
+              <%= c.text_field :verification_code, class: "donation-input", size: 3 %>
+          <% end %>
+
+          <%= f.submit "Donate" %>
+      <% end %>
+    </div>
+</div>

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150730151445) do
   create_table "cards", force: :cascade do |t|
     t.binary   "number",            limit: 65535
     t.string   "expiration_month",  limit: 255
-    t.string   "expiration_date",   limit: 255
+    t.string   "expiration_year",   limit: 255
     t.binary   "verification_code", limit: 65535
     t.string   "name",              limit: 255
     t.datetime "created_at",                      null: false
