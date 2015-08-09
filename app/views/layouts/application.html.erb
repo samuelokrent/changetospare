@@ -3,24 +3,59 @@
 <head>
   <title>ChangeToSpare</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Dosis|Abel' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div class="wrapper">
-    <div class="header">
-      <p class="title-text">Change To Spare</p>
-    </div>
+
     <div class="top-nav">
-      <%= link_to "Home", root_path, class: "nav-link" %>
-      <%= link_to "Donate", new_donation_path, class: "nav-link" %>
-      <%= link_to "Charities", charities_path, class: "nav-link" %>
-      <%= link_to "Share", { controller: 'home', action: 'share' }, { :class => "nav-link" } %>
+      <div class="logo-wrapper">
+        <span class="title-change">Change</span> <span class="title-to">To</span><br>
+          <span class="title-spare">Spare</span>
+      </div>
+
+      <%= link_to(root_path, class: "nav-link") do %>
+        <span class="dash">-</span><span class="nav-link-text">Home</span><span class="dash">-</span>
+      <% end %>
+      <%= link_to(new_donation_path, class: "nav-link") do %>
+          <span class="dash">-</span><span class="nav-link-text">Donate</span><span class="dash">-</span>
+      <% end %>
+      <%= link_to(charities_path, class: "nav-link") do %>
+          <span class="dash">-</span><span class="nav-link-text">Charities</span><span class="dash">-</span>
+      <% end %>
+      <%= link_to({ controller: 'home', action: 'share' }, { :class => "nav-link" })  do %>
+          <span class="dash">-</span><span class="nav-link-text">Share</span><span class="dash">-</span>
+      <% end %>
     </div>
+
     <div class="body-wrapper">
       <%= yield %>
     </div>
-
 </div>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55c0118f5e3cde6f" async="async" ></script>
+<script type="text/javascript" id="refresh_script">
+    //always refresh on URL change
+    document.addEventListener("page:load", function () {
+    })
+</script>
+<script type = "text/javascript">
+  $(document).ready(function () {
+      $(".nav-link").hover(function () {
+          var dashes = this.querySelectorAll(".dash")
+          for(i = 0; i < dashes.length; i++) {
+              dashes[i].style.color = "#333399"
+          }
+      }, function () {
+          var dashes = this.querySelectorAll(".dash")
+          for(i = 0; i < dashes.length; i++) {
+              dashes[i].style.color = "white"
+          }
+      })
+  })
+</script>
 </body>
+
 </html>

@@ -1,12 +1,19 @@
 <div class="text-wrapper">
-    <p class="title-text">Welcome to ChangeToSpare!</p>
-    <p class="main-text grabber">Looking for a way to finish that card?</p>
-    <p class="main-text">Here is our description</p>
+    <p class="main-text grabber">
+      <span class="grabber-1">LOOKING FOR A WAY TO </span><br>
+      <span class="grabber-2">FINISH THAT CARD?</span>
+    </p>
+    <p class="main-text about-text">
+      Online, many charities set a minimum value on donations.<br>
+      ChangeToSpare allows you the opportunity to give smaller amounts,<br>
+      making it perfect for those who are trying to finish off prepaid debit/gift cards,<br>
+      or anyone who wants to give in a less restricted fashion.<br>
+      ChangeToSpare collects these donations and, once they've reached a critical mass,<br>
+      passes 100% of them along to the charity you specify!
+    </p>
 </div>
 <div class="button-wrapper">
-  <div class="link-button">
-    <p class="button-text">
-      <%= link_to "Donate", new_donation_path, class: "link-text" %>
-    </p>
+  <div class="link-button donate-button">
+      <%= link_to "DONATE", new_donation_path, class: "link-text" %>
   </div>
 </div>
