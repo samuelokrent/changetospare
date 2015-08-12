@@ -13,7 +13,7 @@
     </p>
 </div>
 <div class="button-wrapper">
-  <div class="link-button donate-button">
-      <%= link_to "DONATE", new_donation_path, class: "link-text" %>
-  </div>
+  <%= link_to(new_donation_path, class: "link-text") do %>
+      <div class="link-button donate-button">DONATE</div>
+  <% end %>
 </div>

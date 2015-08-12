@@ -8,7 +8,7 @@
       <p class="main-text"><%= c.about %></p>
       <p class="charity-label">TOTAL DONATIONS</p>
       <div class="divider"></div>
-      <p class="main-text">$<%= Donation.display_amount c.total_donations %></p>
+      <p class="main-text">$<%= '%.2f' % c.total_donations %></p>
     </div>
   <% end %>
 </div>

@@ -11,20 +11,26 @@
 <div class="wrapper">
 
     <div class="top-nav">
-      <div class="logo-wrapper">
-        <span class="title-change">Change</span> <span class="title-to">To</span><br>
-          <span class="title-spare">Spare</span>
-      </div>
+
+      <%= link_to(root_path) do %>
+          <div class="logo-wrapper">
+            <span class="title-change">Change</span> <span class="title-to">To</span><br>
+            <span class="title-spare">Spare</span>
+          </div>
+      <% end %>
 
       <%= link_to(root_path, class: "nav-link") do %>
-        <span class="dash">-</span><span class="nav-link-text">Home</span><span class="dash">-</span>
+          <span class="dash">-</span><span class="nav-link-text">Home</span><span class="dash">-</span>
       <% end %>
+
       <%= link_to(new_donation_path, class: "nav-link") do %>
           <span class="dash">-</span><span class="nav-link-text">Donate</span><span class="dash">-</span>
       <% end %>
+
       <%= link_to(charities_path, class: "nav-link") do %>
           <span class="dash">-</span><span class="nav-link-text">Charities</span><span class="dash">-</span>
       <% end %>
+
       <%= link_to({ controller: 'home', action: 'share' }, { :class => "nav-link" })  do %>
           <span class="dash">-</span><span class="nav-link-text">Share</span><span class="dash">-</span>
       <% end %>
@@ -33,6 +39,10 @@
     <div class="body-wrapper">
       <%= yield %>
     </div>
+</div>
+
+<div class="footer">
+    ChangeToSpare - here is some information
 </div>
 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55c0118f5e3cde6f" async="async" ></script>
@@ -46,7 +56,7 @@
       $(".nav-link").hover(function () {
           var dashes = this.querySelectorAll(".dash")
           for(i = 0; i < dashes.length; i++) {
-              dashes[i].style.color = "#333399"
+              dashes[i].style.color = "black"
           }
       }, function () {
           var dashes = this.querySelectorAll(".dash")
